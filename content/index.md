@@ -95,6 +95,13 @@ An honest epidemiologist has to concede that the standard "living well" slogans 
 {% endfor %}
 </ul>
 
+## The talk
+
+This site is also a talk kit. The same content builds a slide deck — a 20-minute
+selection, not the whole thing: [**view the deck**](/deck.html) (or the
+[printable PDF](/deck.pdf)). What happened when it was given is written up under
+[talks](/talks/).
+
 ## The final slogan set
 
 > **Smoking kills — stopping helps.**
@@ -108,4 +115,4 @@ An honest epidemiologist has to concede that the standard "living well" slogans 
 
 ---
 
-*Prepared July 2026. See [how this was made and how to contribute](https://github.com/OWNER/living-well-slogans). Effect sizes are given with the design that generated them, and with the honest weaknesses.*
+*Prepared July 2026. See [how this was made and how to contribute](https://github.com/drcjar/living-well-slogans). Effect sizes are given with the design that generated them, and with the honest weaknesses.*

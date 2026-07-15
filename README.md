@@ -87,7 +87,10 @@ with its 15-year-old co-author.
 
 ## Deployment
 
-Pushing to `main` builds the site and deploys it to GitHub Pages via
-`.github/workflows/build.yml`. Set the repo's Pages source to "GitHub Actions",
-and replace `OWNER` in `.eleventy.js` and the licence files with the real
-GitHub owner/repo.
+Pushing to `main` runs `.github/workflows/build.yml`, which gates on the
+evidence check, builds the site and the deck, and force-pushes the result to the
+`gh-pages` branch. GitHub Pages serves that branch (Settings → Pages → Deploy
+from a branch: `gh-pages` / root). The site is served under the account's
+`carlreynolds.net` apex at <https://carlreynolds.net/living-well-slogans/>, which
+is why `pathPrefix` in `.eleventy.js` is `/living-well-slogans/`. Change the
+prefix if you rename the repo or move it off that domain.

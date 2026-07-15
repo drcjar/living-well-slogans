@@ -17,7 +17,7 @@ export default function (eleventyConfig) {
     title: "Living Well: Slogans and the Evidence",
     // Set this in the GitHub Pages settings / repo, used only for absolute
     // URLs where unavoidable. Kept relative everywhere we can.
-    repo: "https://github.com/OWNER/living-well-slogans",
+    repo: "https://github.com/drcjar/living-well-slogans",
   });
 
   // Human-readable labels for the confidence and authorship enums, so the
