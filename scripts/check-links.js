@@ -39,8 +39,13 @@ const errors = [];
 // attribute-scoped checks below, so this is just to avoid noise.
 const FETCHING_ATTR = /\b(?:src|href)\s*=\s*"([^"]+)"/gi;
 
+// Must match pathPrefix in .eleventy.js. Links carry this prefix, but the
+// built files sit at the _site root, so strip it before resolving to disk.
+const PREFIX = "/living-well-slogans";
+
 function resolveInternal(href) {
   let target = href.split("#")[0].split("?")[0];
+  if (target.startsWith(PREFIX)) target = target.slice(PREFIX.length) || "/";
   if (target === "" || target === "/") target = "/";
   if (!target.startsWith("/")) return null; // relative — skip (none authored)
   let fsPath = path.join(SITE, target);

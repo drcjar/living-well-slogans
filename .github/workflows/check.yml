@@ -1,0 +1,34 @@
+name: check
+
+# Runs on every pull request. This is the gate: evidence integrity, a clean
+# build, and internal links that resolve with no external requests.
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # The whole point of the project: fail if a figure is unsourced or missing
+      # from the provenance ledger, or a page drifts from the required shape.
+      - name: Evidence integrity
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      - name: Links + no external requests
+        run: npm run check:links

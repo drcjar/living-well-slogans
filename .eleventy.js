@@ -1,8 +1,15 @@
 import fs from "node:fs";
+import { HtmlBasePlugin } from "@11ty/eleventy";
 
 export default function (eleventyConfig) {
   // Copy the hand-written CSS through untouched. No pipeline, no framework.
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+
+  // GitHub Pages serves a project site under /<repo>/. This rewrites every
+  // root-absolute link and asset URL to include that prefix, so the same
+  // markdown works locally (prefix "/") and on Pages. Override at build time
+  // with `eleventy --pathprefix=/living-well-slogans/`.
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // The markdown files in content/ are the canonical artefact. We render them
   // as-is; the site is just a view of them.
@@ -58,6 +65,11 @@ export default function (eleventyConfig) {
   );
 
   return {
+    // GitHub Pages serves this project under /living-well-slogans/ (via the
+    // account's carlreynolds.net apex). Default to that prefix so `npm run
+    // build` in CI produces correct links. Override for a root deploy with
+    // `eleventy --pathprefix=/`.
+    pathPrefix: "/living-well-slogans/",
     dir: {
       input: "content",
       includes: "../src/_layouts",
