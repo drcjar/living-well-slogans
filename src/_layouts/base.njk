@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ verdict or 'Evidence-checked public-health slogans and the evidence behind each one.' }}" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav aria-label="Primary">
+        <a class="site-title" href="/">Living Well &amp; the Evidence</a>
+        <ul class="nav-list">
+          <li><a href="/#slogans">Slogans</a></li>
+          <li><a href="/provenance/">Provenance</a></li>
+          <li><a href="/talks/">Talks</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main">
+      {{ content | safe }}
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Code is <a href="{{ site.repo }}/blob/main/LICENSE">MIT</a>.
+        Prose is <a href="{{ site.repo }}/blob/main/LICENSE-CONTENT">CC&nbsp;BY&nbsp;4.0</a>.
+        This is a reference, not a campaign.
+      </p>
+      <p>
+        Every figure here is tracked in <a href="/provenance/">provenance</a>,
+        marked <em>verified</em> or <em>from recall</em>.
+        <a href="{{ site.repo }}">Source &amp; corrections on GitHub.</a>
+      </p>
+    </footer>
+  </body>
+</html>

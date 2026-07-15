@@ -1,0 +1,168 @@
+/* Living Well: Slogans and the Evidence — one hand-written stylesheet.
+ * No framework, no webfonts, no external calls. A working paper, not a campaign.
+ */
+:root {
+  --ink: #1a1a1a; --ink-soft: #444; --ink-faint: #6a6a6a;
+  --paper: #fbfaf7; --paper-raised: #f2f0ea; --rule: #d9d5cc;
+  --link: #1a4d6b; --link-hover: #0f3247;
+  --auth-public-health: #1c6b4a; --auth-industry: #a3341f;
+  --auth-marketing: #9a6b12; --auth-folk: #5b5b5b;
+  --measure: 38rem;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e9e6df; --ink-soft: #c3bfb6; --ink-faint: #948f85;
+    --paper: #17181a; --paper-raised: #202225; --rule: #34363a;
+    --link: #7ab6d6; --link-hover: #a3cfe6;
+    --auth-public-health: #4fb487; --auth-industry: #e08063;
+    --auth-marketing: #d6a84a; --auth-folk: #9a978f;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Skip link & focus --- */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper); padding: 0.5rem 0.75rem; z-index: 10;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+a:focus-visible, :focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+
+/* --- Links --- */
+a { color: var(--link); text-underline-offset: 0.15em; }
+a:hover { color: var(--link-hover); }
+
+/* --- Layout --- */
+.site-header, .site-footer, main { padding-inline: 1.25rem; }
+main { max-width: 46rem; margin: 0 auto; padding-block: 2.5rem 3rem; }
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header nav {
+  max-width: 46rem; margin: 0 auto; display: flex; flex-wrap: wrap;
+  align-items: baseline; gap: 0.5rem 1.5rem; padding-block: 0.85rem;
+}
+.site-title { font-weight: 700; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
+.nav-list {
+  list-style: none; display: flex; gap: 1.25rem; margin: 0 0 0 auto;
+  padding: 0; font-size: 0.95rem;
+}
+.site-footer {
+  border-top: 1px solid var(--rule); margin-top: 3rem;
+  padding-block: 1.75rem 2.5rem; color: var(--ink-faint); font-size: 0.9rem;
+}
+.site-footer p { max-width: 46rem; margin: 0 auto 0.5rem; }
+
+/* --- Prose --- */
+.prose, main > h1, main > p { max-width: var(--measure); }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
+h1 { font-size: clamp(1.7rem, 1.3rem + 2vw, 2.4rem); margin: 0 0 0.5rem; }
+h2 {
+  font-size: 1.35rem; margin: 2.25rem 0 0.5rem;
+  padding-top: 0.75rem; border-top: 1px solid var(--rule);
+}
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose li { margin-bottom: 0.4rem; }
+blockquote {
+  margin: 1.5rem 0; padding: 0.5rem 0 0.5rem 1.1rem;
+  border-left: 3px solid var(--rule); color: var(--ink-soft); font-size: 1.05rem;
+}
+blockquote strong { color: var(--ink); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em; background: var(--paper-raised); padding: 0.1em 0.35em; border-radius: 2px;
+}
+
+/* --- Tables (the worked/failed spine) --- */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th {
+  border-bottom: 2px solid var(--ink-faint); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft);
+}
+
+/* --- Slogan header & badges (the visual argument: who wrote each slogan) --- */
+.eyebrow {
+  font-size: 0.85rem; color: var(--ink-faint); text-transform: uppercase;
+  letter-spacing: 0.06em; margin: 0 0 0.75rem;
+}
+.eyebrow a { color: inherit; }
+.verdict {
+  font-family: var(--serif); font-size: 1.2rem; line-height: 1.45;
+  color: var(--ink-soft); margin: 0 0 1.25rem; max-width: var(--measure);
+}
+.badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.5rem; padding: 0; }
+.badge { border: 1px solid var(--rule); border-left-width: 4px; padding: 0.3rem 0.6rem; background: var(--paper-raised); }
+.badge dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); margin: 0; }
+.badge dd { margin: 0; font-weight: 600; font-size: 0.95rem; }
+.badge--author, .badge--folk { border-left-color: var(--auth-folk); }
+.badge--author dd, .badge--folk dd { color: var(--auth-folk); }
+.badge--public-health { border-left-color: var(--auth-public-health); }
+.badge--public-health dd { color: var(--auth-public-health); }
+.badge--industry { border-left-color: var(--auth-industry); }
+.badge--industry dd { color: var(--auth-industry); }
+.badge--marketing { border-left-color: var(--auth-marketing); }
+.badge--marketing dd { color: var(--auth-marketing); }
+
+/* --- Pager --- */
+.pager {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+}
+.pager a { display: block; max-width: 15rem; text-decoration: none; color: var(--ink); font-weight: 600; line-height: 1.3; }
+.pager a:hover { color: var(--link); }
+.pager-next { margin-left: auto; text-align: right; }
+.pager span { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); font-weight: 500; }
+
+/* --- Index: lede + slogan list --- */
+.lede { font-family: var(--serif); font-size: 1.25rem; line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
+.slogan-index { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; gap: 0.75rem; }
+.slogan-index li { margin: 0; }
+.slogan-index a {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem;
+  text-decoration: none; color: var(--ink); border: 1px solid var(--rule);
+  border-left-width: 4px; padding: 0.7rem 0.9rem; background: var(--paper);
+}
+.slogan-index a:hover { background: var(--paper-raised); }
+.slogan-index .s-title { font-weight: 700; font-size: 1.05rem; }
+.slogan-index .s-author { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-left: auto; font-weight: 600; }
+.slogan-index [data-author="public-health"] { border-left-color: var(--auth-public-health); }
+.slogan-index [data-author="public-health"] .s-author { color: var(--auth-public-health); }
+.slogan-index [data-author="industry"] { border-left-color: var(--auth-industry); }
+.slogan-index [data-author="industry"] .s-author { color: var(--auth-industry); }
+.slogan-index [data-author="marketing"] { border-left-color: var(--auth-marketing); }
+.slogan-index [data-author="marketing"] .s-author { color: var(--auth-marketing); }
+.slogan-index [data-author="folk"] { border-left-color: var(--auth-folk); }
+.slogan-index [data-author="folk"] .s-author { color: var(--auth-folk); }
+
+/* --- The two-clock diagram (SVG, no JS) --- */
+.two-clock { margin: 2rem 0; border: 1px solid var(--rule); padding: 1rem; background: var(--paper-raised); }
+.two-clock svg { display: block; width: 100%; height: auto; }
+.two-clock figcaption { font-size: 0.9rem; color: var(--ink-faint); margin-top: 0.75rem; }
+.clock-bar-10 { fill: var(--auth-industry); }
+.clock-bar-70 { fill: var(--link); }
+.clock-axis { stroke: var(--rule); stroke-width: 1; }
+.clock-label { font-family: var(--sans); font-size: 13px; fill: var(--ink-soft); }
+.clock-heading { font-family: var(--sans); font-size: 14px; font-weight: 700; fill: var(--ink); }
+
+/* --- Talks --- */
+.talk-list { list-style: none; padding: 0; }
+.talk-list li { border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
+.talk-meta { color: var(--ink-faint); font-size: 0.85rem; }
+
+/* --- Responsive --- */
+@media (max-width: 24rem) {
+  body { font-size: 1rem; }
+  main { padding-inline: 1rem; }
+  .nav-list { gap: 0.9rem; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }

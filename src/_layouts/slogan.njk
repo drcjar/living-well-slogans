@@ -1,0 +1,54 @@
+---
+layout: base.njk
+---
+{% set slogans = collections.slogans %}
+{% set idx = null %}
+{% for s in slogans %}
+  {% if s.url == page.url %}{% set idx = loop.index0 %}{% endif %}
+{% endfor %}
+
+<article class="slogan" data-authored="{{ authored_by }}">
+  <header class="slogan-head">
+    <p class="eyebrow">
+      <a href="/#slogans">Slogans</a>
+      <span aria-hidden="true">›</span>
+      Page {{ order }}
+    </p>
+    <h1>{{ slogan }}</h1>
+    {% if verdict %}<p class="verdict">{{ verdict }}</p>{% endif %}
+
+    <dl class="badges" aria-label="Classification of this slogan">
+      <div class="badge badge--author badge--{{ authored_by }}">
+        <dt>Written by</dt>
+        <dd>{{ labels.authored_by[authored_by] or authored_by }}</dd>
+      </div>
+      <div class="badge badge--confidence badge--conf-{{ confidence }}">
+        <dt>Confidence</dt>
+        <dd>{{ labels.confidence[confidence] or confidence }}</dd>
+      </div>
+      <div class="badge badge--clock">
+        <dt>Clock</dt>
+        <dd>{{ labels.clock[clock] or clock }}</dd>
+      </div>
+    </dl>
+  </header>
+
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+
+  <nav class="pager" aria-label="Slogan navigation">
+    {% if idx > 0 %}
+      {% set prev = slogans[idx - 1] %}
+      <a class="pager-prev" href="{{ prev.url }}">
+        <span>Previous</span>{{ prev.data.slogan }}
+      </a>
+    {% endif %}
+    {% if idx < (slogans.length - 1) %}
+      {% set next = slogans[idx + 1] %}
+      <a class="pager-next" href="{{ next.url }}">
+        <span>Next</span>{{ next.data.slogan }}
+      </a>
+    {% endif %}
+  </nav>
+</article>

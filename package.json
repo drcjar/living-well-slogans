@@ -1,0 +1,20 @@
+{
+  "name": "living-well-slogans",
+  "version": "0.1.0",
+  "description": "Evidence-checked public-health slogans and the evidence behind each one.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "check": "node scripts/check-evidence.js",
+    "check:links": "node scripts/check-links.js",
+    "deck": "marp slides/deck.md -o _site/deck.html && marp slides/deck.md --pdf --allow-local-files -o _site/deck.pdf",
+    "deck:html": "marp slides/deck.md -o _site/deck.html"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@marp-team/marp-cli": "^4.0.4"
+  }
+}
