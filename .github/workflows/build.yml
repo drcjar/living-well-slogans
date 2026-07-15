@@ -42,6 +42,13 @@ jobs:
         uses: browser-actions/setup-chrome@v1
         id: setup-chrome
 
+      # Ubuntu 23.10+ runners restrict unprivileged user namespaces via AppArmor,
+      # which stops Chromium's sandbox launching ("No usable sandbox"). Re-enable
+      # it so the PDF deck can render. `|| true` keeps older kernels (no such key)
+      # from failing the build.
+      - name: Allow Chromium sandbox
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+
       - name: Build deck (HTML + PDF)
         env:
           CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
