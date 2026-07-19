@@ -22,6 +22,11 @@ A note on the arithmetic: a few figures (the roulette house edge, slot return-to
 - **Denissenko et al., [Science 1996;274:430](<https://doi.org/10.1126/science.274.5286.430>)** — benzo[a]pyrene adducts at *TP53* codons 157, 248, 273.
 - **Bradford Hill, [Proc R Soc Med 1965;58:295](<https://doi.org/10.1177/003591576505800503>)** — the viewpoints paper on causal inference.
 - **Lindson et al., [Cochrane 2024;CD010216](<https://doi.org/10.1002/14651858.CD010216.pub8>)** — high-certainty evidence that nicotine e-cigarettes help established smokers quit.
+- **Stead et al., [Cochrane 2016;CD008286](<https://doi.org/10.1002/14651858.CD008286.pub3>)** — combined pharmacotherapy + behavioural support vs minimal support, RR 1.83.
+- **Hartmann-Boyce et al., [Cochrane 2019;CD009670](<https://doi.org/10.1002/14651858.CD009670.pub4>)** — additional behavioural support as an adjunct to medication, RR 1.15.
+- **Hartmann-Boyce et al., [Cochrane 2018;CD000146](<https://doi.org/10.1002/14651858.CD000146.pub5>)** — nicotine replacement therapy vs control, RR 1.55.
+- **Livingstone-Banks et al., [Cochrane 2023;CD006103](<https://doi.org/10.1002/14651858.CD006103.pub8>)** — nicotine-receptor partial agonists: varenicline RR 2.32, cytisine RR 1.30.
+- **Cahill et al., [Cochrane 2013;CD009329](<https://doi.org/10.1002/14651858.CD009329.pub2>)** — network meta-analysis of pharmacological options; varenicline and combination NRT most effective.
 
 ### Alcohol
 
@@ -46,6 +51,8 @@ A note on the arithmetic: a few figures (the roulette house edge, slot return-to
 - **Global BMI Mortality Collaboration, [Lancet 2016;388:776](<https://doi.org/10.1016/S0140-6736(16)30175-1>)** — ~3.9 million adults; all-cause mortality lowest at BMI 20–25, ~31% higher per 5 kg/m² above 25.
 - **Simmonds et al., [Obes Rev 2016;17:95](<https://doi.org/10.1111/obr.12334>)** — obesity tracks from childhood; children with obesity ~5× as likely to have it as adults, ~80% of adolescents with obesity remain so.
 - **Hall et al., [Cell Metab 2019;30:67](<https://doi.org/10.1016/j.cmet.2019.05.008>)** — ultra-processed diet, ~500 kcal/day more eaten *ad libitum*; n=20, four weeks.
+- **Hollands et al. (Cochrane 2015), [portion, package and tableware size](<https://pubmed.ncbi.nlm.nih.gov/26368271/>)** — experimental review: larger portions/packages/tableware increase consumption.
+- **Rolls et al., [Am J Clin Nutr 2002;76:1207](<https://pubmed.ncbi.nlm.nih.gov/12450884/>)** — larger portions increased energy intake with no matching rise in fullness.
 - **Fothergill et al., [Obesity 2016;24:1612](<https://doi.org/10.1002/oby.21538>)** ("Biggest Loser" follow-up) — resting metabolic rate suppressed six years on; 13 of 14 regained.
 - **GBD 2017 Diet Collaborators, [Lancet 2019;393:1958](<https://doi.org/10.1016/S0140-6736(19)30041-8>)** — ~11 million deaths/year attributable to dietary risks.
 - **Aune et al., [Int J Epidemiol 2017](<https://doi.org/10.1093/ije/dyw319>)** — fruit/vegetable benefit continuing to ~800 g/day.
@@ -58,17 +65,33 @@ A note on the arithmetic: a few figures (the roulette house edge, slot return-to
 - **Paluch et al., [Lancet Public Health 2022;7:e219](<https://doi.org/10.1016/S2468-2667(21)00302-9>)** — ~47,000 adults; most of the mortality benefit captured below the popular round step targets, then plateaus.
 - **Klimentidis et al., [Int J Obes 2018;42:1161](<https://doi.org/10.1038/s41366-018-0120-3>)** — genome-wide association study of physical activity, providing the genetic instruments used in Mendelian-randomisation analyses.
 - **Choi et al., [JAMA Psychiatry 2019;76:399](<https://doi.org/10.1001/jamapsychiatry.2018.4175>)** — two-sample Mendelian randomisation: physical activity causally lowers the risk of major depression.
+- **Stevinson et al., [Int J Behav Med 2015;22:170](<https://doi.org/10.1007/s12529-014-9431-5>)** — qualitative study of parkrun: free, inclusive, social features drive participation.
+- **Haake et al., [Health Promot Int 2022;37](<https://doi.org/10.1093/heapro/daab138>)** — parkrun uptake skews to more affluent areas (≈7× a deprived one), so provision alone is not equitable.
 
 ### Sleep
 
 - **Crowley, Acebo & Carskadon, [Sleep Med 2007;8:602](<https://doi.org/10.1016/j.sleep.2006.12.002>)** — adolescent circadian phase delay across puberty.
 - **Paruthi et al., [J Clin Sleep Med 2016;12:785](<https://doi.org/10.5664/jcsm.5866>)** (AASM consensus) — 8–10 hours per night for 13–18-year-olds.
 - **Dunster et al., [Sci Adv 2018;4:eaau6200](<https://doi.org/10.1126/sciadv.aau6200>)** — Seattle school start delayed 55 minutes; actigraphy-measured sleep +34 minutes.
+- **Drake et al., [J Clin Sleep Med 2013;9:1195](<https://pubmed.ncbi.nlm.nih.gov/24235903/>)** — caffeine 0/3/6 hours before bed measurably reduced sleep.
+- **Chang et al., [PNAS 2015;112:1232](<https://pubmed.ncbi.nlm.nih.gov/25535358/>)** — evening light-emitting screens suppressed melatonin and delayed the circadian clock.
+- **Qaseem et al., [Ann Intern Med 2016;165:125](<https://pubmed.ncbi.nlm.nih.gov/27136449/>)** — ACP guideline: CBT-I is first-line for chronic insomnia.
 
 ### Sun
 
 - **Green et al., [Lancet 1999;354:723](<https://doi.org/10.1016/S0140-6736(98)12168-2>)** (Nambour) — 2×2 factorial design, 1,621 participants; daily sunscreen reduced squamous cell carcinoma.
 - **Green et al., [J Clin Oncol 2011;29:257](<https://doi.org/10.1200/JCO.2010.28.7078>)** (Nambour ten-year follow-up) — melanoma 11 vs 22 (HR 0.50, 95% CI 0.24–1.02); invasive melanoma 3 vs 11 (HR 0.27, 95% CI 0.08–0.97).
+
+### Collective / structural action
+
+- **Pell et al., [NEJM 2008;359:482](<https://doi.org/10.1056/NEJMsa0706740>)** — after Scotland's 2006 smoke-free law, acute coronary syndrome admissions fell 17%, two-thirds in non-smokers.
+- **Tan & Glantz, [Circulation 2012;126:2177](<https://doi.org/10.1161/CIRCULATIONAHA.112.121301>)** — meta-analysis of 45 studies; smoke-free laws lowered cardiac, stroke and respiratory hospitalisations.
+- **Frazer et al., [Cochrane 2016;CD005992](<https://doi.org/10.1002/14651858.CD005992.pub3>)** — 77 studies; consistent cardiovascular benefit of smoke-free legislation.
+- **Wyper et al., [Lancet 2023;401:1361](<https://doi.org/10.1016/S0140-6736(23)00497-X>)** — Scotland's minimum unit pricing associated with a 13.4% fall in wholly-alcohol-attributable deaths.
+- **O'Donnell et al., [BMJ 2019;366:l5274](<https://doi.org/10.1136/bmj.l5274>)** — minimum unit pricing cut off-trade alcohol purchased by ~7.6%.
+- **Scarborough et al., [PLoS Med 2020;17:e1003025](<https://doi.org/10.1371/journal.pmed.1003025>)** — UK soft drinks levy: drinks above the sugar threshold fell ~34 percentage points (reformulation).
+- **Rogers et al., [PLoS Med 2023;20:e1004160](<https://doi.org/10.1371/journal.pmed.1004160>)** — soft drinks levy: ~1.6 percentage points lower obesity in Year-6 girls, largest in the most deprived quintile.
+- **Goodman et al., [Am J Public Health 2014;104:e38](<https://doi.org/10.2105/AJPH.2014.302059>)** — new walking/cycling routes: more activity at two years near routes (weaker, non-randomised evidence).
 
 ## Deliberately not cited
 
