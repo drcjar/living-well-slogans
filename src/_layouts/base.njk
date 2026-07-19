@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ verdict or 'Evidence-checked public-health slogans and the evidence behind each one.' }}" />
+    <meta name="description" content="{{ verdict or 'Evidence-checked pointers on living well, and the evidence behind each one.' }}" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
@@ -13,10 +13,10 @@
       <nav aria-label="Primary">
         <a class="site-title" href="/">Living Well &amp; the Evidence</a>
         <ul class="nav-list">
-          <li><a href="/#slogans">Slogans</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/quiz/">Quiz</a></li>
           <li><a href="/provenance/">Provenance</a></li>
-          <li><a href="/deck.html">Deck</a></li>
-          <li><a href="/talks/">Talks</a></li>
+          <li><a href="/slides/">Slides</a></li>
         </ul>
       </nav>
     </header>
@@ -33,8 +33,12 @@
       </p>
       <p>
         Every figure here is tracked in <a href="/provenance/">provenance</a>,
-        marked <em>verified</em> or <em>from recall</em>.
+        checked against its source and linked so you can read further.
         <a href="{{ site.repo }}">Source &amp; corrections on GitHub.</a>
+      </p>
+      <p>
+        Feedback or a correction? Email
+        <a href="mailto:carl.reynolds@nhs.net?subject=Living%20Well%20feedback">carl.reynolds@nhs.net</a>.
       </p>
     </footer>
   </body>

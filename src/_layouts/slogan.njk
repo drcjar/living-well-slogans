@@ -7,21 +7,15 @@ layout: base.njk
   {% if s.url == page.url %}{% set idx = loop.index0 %}{% endif %}
 {% endfor %}
 
-<article class="slogan" data-authored="{{ authored_by }}">
+<article class="slogan">
   <header class="slogan-head">
     <p class="eyebrow">
-      <a href="/#slogans">Slogans</a>
-      <span aria-hidden="true">›</span>
-      Page {{ order }}
+      <a href="/">Home</a>
     </p>
     <h1>{{ slogan }}</h1>
     {% if verdict %}<p class="verdict">{{ verdict }}</p>{% endif %}
 
     <dl class="badges" aria-label="Classification of this slogan">
-      <div class="badge badge--author badge--{{ authored_by }}">
-        <dt>Written by</dt>
-        <dd>{{ labels.authored_by[authored_by] or authored_by }}</dd>
-      </div>
       <div class="badge badge--confidence badge--conf-{{ confidence }}">
         <dt>Confidence</dt>
         <dd>{{ labels.confidence[confidence] or confidence }}</dd>
@@ -33,7 +27,7 @@ layout: base.njk
     </dl>
   </header>
 
-  <div class="prose">
+  <div class="prose" data-agetabs>
     {{ content | safe }}
   </div>
 
@@ -52,3 +46,86 @@ layout: base.njk
     {% endif %}
   </nav>
 </article>
+
+{# Progressive enhancement: turn the three "For ages …" sections into a tabbed
+   reader. With no JS the page is just three stacked, clearly-headed sections
+   followed by the always-visible evidence — fully readable, printable, and the
+   canonical GitHub view. No external requests; inline and self-contained. #}
+<script>
+(function () {
+  var root = document.querySelector("[data-agetabs]");
+  if (!root) return;
+
+  // Collect the contiguous run of "For ages …" sections: each band is an <h2>
+  // plus every following sibling up to the next <h2>.
+  var kids = Array.prototype.slice.call(root.children);
+  var bands = [];
+  for (var i = 0; i < kids.length; i++) {
+    var el = kids[i];
+    if (el.tagName === "H2" && /^For ages\b/.test(el.textContent.trim())) {
+      var nodes = [el];
+      for (var j = i + 1; j < kids.length; j++) {
+        if (kids[j].tagName === "H2") break;
+        nodes.push(kids[j]);
+      }
+      bands.push({ heading: el, nodes: nodes });
+    }
+  }
+  if (bands.length < 2) return; // nothing to enhance
+
+  var groupId = "ages-" + Math.abs(hash(location.pathname));
+  var tablist = document.createElement("div");
+  tablist.className = "age-tablist";
+  tablist.setAttribute("role", "tablist");
+  tablist.setAttribute("aria-label", "Choose a reading age");
+
+  // Insert the (empty) tab container at the first band's position BEFORE moving
+  // any nodes — once the heading is pulled into a panel it is no longer a child
+  // of root, so we must anchor the insert while it is still in place.
+  var wrap = document.createElement("div");
+  wrap.className = "age-tabs";
+  wrap.appendChild(tablist);
+  root.insertBefore(wrap, bands[0].heading);
+
+  var panels = [];
+  bands.forEach(function (band, n) {
+    var label = band.heading.textContent.replace(/^For ages\s*/i, "").trim();
+    var panel = document.createElement("div");
+    panel.className = "age-panel";
+    panel.id = groupId + "-panel-" + n;
+    panel.setAttribute("role", "tabpanel");
+    panel.setAttribute("aria-labelledby", groupId + "-tab-" + n);
+    band.heading.style.display = "none"; // heading becomes the tab label
+    band.nodes.forEach(function (node) { panel.appendChild(node); });
+    wrap.appendChild(panel);
+
+    var tab = document.createElement("button");
+    tab.type = "button";
+    tab.className = "age-tab";
+    tab.id = groupId + "-tab-" + n;
+    tab.textContent = label;
+    tab.setAttribute("role", "tab");
+    tab.setAttribute("aria-controls", panel.id);
+    tab.addEventListener("click", function () { select(n); });
+    tab.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") { e.preventDefault(); select((n + 1) % bands.length, true); }
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); select((n - 1 + bands.length) % bands.length, true); }
+    });
+    tablist.appendChild(tab);
+    panels.push({ tab: tab, panel: panel });
+  });
+
+  function select(n, focus) {
+    panels.forEach(function (p, i) {
+      var on = i === n;
+      p.tab.setAttribute("aria-selected", on ? "true" : "false");
+      p.tab.tabIndex = on ? 0 : -1;
+      p.panel.hidden = !on;
+    });
+    if (focus) panels[n].tab.focus();
+  }
+  select(0);
+
+  function hash(s) { var h = 0; for (var i = 0; i < s.length; i++) { h = (h << 5) - h + s.charCodeAt(i); h |= 0; } return h; }
+})();
+</script>

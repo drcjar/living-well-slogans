@@ -30,10 +30,10 @@ const PROVENANCE = path.join(ROOT, "content", "provenance.md");
 const SCHEMA = {
   confidence: ["near-certain", "high", "moderate", "contested"],
   clock: ["ten-year", "seventy-year", "both"],
-  authored_by: ["public-health", "industry", "marketing", "folk"],
 };
-const REQUIRED_FIELDS = ["order", "slogan", "verdict", "confidence", "clock", "authored_by"];
+const REQUIRED_FIELDS = ["order", "slogan", "verdict", "confidence", "clock"];
 
+// Old-style pages (pre age-tabs) must carry these four sections in order.
 const REQUIRED_SECTIONS = [
   "The claim",
   "The evidence",
@@ -41,6 +41,13 @@ const REQUIRED_SECTIONS = [
   "What this means for a 15-year-old",
 ];
 // Optional, not enforced: "The slogan to attack".
+
+// New-style pages carry three age bands, then the shared evidence. A page is
+// treated as new-style the moment any "For ages …" heading appears, so the two
+// shapes can coexist while the pages are converted one at a time.
+const AGE_BAND_SECTIONS = ["For ages 8–11", "For ages 11–16", "For ages 16+"];
+const REQUIRED_SECTIONS_NEW = [...AGE_BAND_SECTIONS, "The evidence", "The honest weakness"];
+const isNewStyle = (headings) => headings.some((h) => /^For ages\b/.test(h));
 
 // A figure: a number bound to one of the brief's units, or an effect estimate.
 const FIGURE_UNIT = /\d[\d,]*(?:\.\d+)?\s?(?:%|kcal|g\/day|-fold)/g;
@@ -103,10 +110,8 @@ if (!fs.existsSync(PROVENANCE)) {
   fail(PROVENANCE, "provenance.md is missing — it is required");
 } else {
   provenanceText = fs.readFileSync(PROVENANCE, "utf8");
-  for (const bucket of ["## Verified against source", "## From recall"]) {
-    if (!provenanceText.includes(bucket)) {
-      fail(PROVENANCE, `missing required bucket heading "${bucket}"`);
-    }
+  if (!provenanceText.includes("## Sources")) {
+    fail(PROVENANCE, 'missing required "## Sources" heading');
   }
 }
 
@@ -134,10 +139,12 @@ for (const file of files) {
     }
   }
 
-  // 2. Section shape — required sections present, in canonical order.
+  // 2. Section shape — required sections present, in canonical order. Which
+  // set is required depends on whether the page has been converted to age tabs.
   const headings = [...body.matchAll(/^##\s+(.+?)\s*$/gm)].map((m) => m[1]);
+  const required = isNewStyle(headings) ? REQUIRED_SECTIONS_NEW : REQUIRED_SECTIONS;
   let cursor = -1;
-  for (const section of REQUIRED_SECTIONS) {
+  for (const section of required) {
     const at = headings.indexOf(section);
     if (at === -1) {
       fail(file, `missing required section "## ${section}"`);
