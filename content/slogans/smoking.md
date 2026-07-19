@@ -26,6 +26,8 @@ But your teens are exactly when that slow clock gets *started*, and it is exactl
 
 What you do now bends the whole rest of the line. **Not starting removes almost the entire future risk, at no cost to you.** It is the single highest-value health decision available to you — and the leverage is highest right now, precisely because this is when the addiction is designed to catch you.
 
+And if someone you love already smokes, this matters for them too: quitting is genuinely hard, but it is **not** just willpower. Proper help — medicines plus support — makes success far more likely, and it is never too late. They do not have to do it alone.
+
 ## For ages 16+
 
 Now you are old enough to weigh the long clock honestly, so here it is without softening.
@@ -36,6 +38,7 @@ But the second half is what turns a grim fact into a decision you control:
 
 - **The risk is not banked. It is largely reversible if you get out early.** Stopping before 40 avoids the large majority of the excess risk; stopping before 30 avoids almost all of it. Even stopping at 60 buys back years. There is no age at which quitting fails to help.
 - **Initiation is the only part of the pathway fully in your hands.** Almost all lifelong smokers start before 20. Not starting removes the entire downstream problem at no cost — which is why, if you have made it this far without smoking, you have already made the highest-leverage move.
+- **And if you already smoke, stopping is not a coin-flip of willpower.** Comprehensive support — behavioural help plus medication — and effective medicines (nicotine replacement, varenicline, cytisine) multiply the odds of success; the effect sizes are in the evidence below.
 
 On vaping, the honest position is the same one as the younger band, just with the evidence attached: nicotine vaping delivers far fewer combustion toxicants than smoking and there is high-quality evidence it helps *established smokers* quit — for a smoker, switching is a genuine gain. For a never-smoker none of that applies: it is dependence with no offsetting benefit and no long-term safety record. (The 2019–20 lung-injury scare, EVALI, was vitamin E acetate in illicit THC cartridges, not nicotine vapes — getting that wrong is the fastest way to lose an argument you should win.)
 
@@ -56,6 +59,15 @@ On vaping, the honest position is the same one as the younger band, just with th
 - **[Pirie et al. 2013](<https://doi.org/10.1016/S0140-6736(12)61720-6>)**: stopping before 40 avoided **>90%** of the excess mortality; stopping before 30 avoided **>97%**. The risk is not banked — it is largely reversible if you get out early.
 
 The second clause matters as much as the first: because the risk is largely reversible if you stop early, this is a reason to act, not a reason to give up.
+
+### Stopping is achievable — support and treatment work
+
+Quitting is hard, but it is not a test of character you simply pass or fail. What multiplies success is **comprehensive support** — behavioural help plus medication, as stop-smoking services provide — and effective medicines:
+
+- **Combining medication with behavioural support** beats brief advice or going it alone — **[Stead et al., Cochrane 2016](<https://doi.org/10.1002/14651858.CD008286.pub3>)** (RR **1.83**); adding behavioural support on top of medication helps further — **[Hartmann-Boyce et al., Cochrane 2019](<https://doi.org/10.1002/14651858.CD009670.pub4>)** (RR **1.15**).
+- **Nicotine replacement therapy** (patches, gum, lozenges) raises quit rates by about half — **[Hartmann-Boyce et al., Cochrane 2018](<https://doi.org/10.1002/14651858.CD000146.pub5>)** (RR **1.55**).
+- **Varenicline** more than doubles them, and oral **cytisine** also helps — **[Livingstone-Banks et al., Cochrane 2023](<https://doi.org/10.1002/14651858.CD006103.pub8>)** (varenicline RR **2.32**; cytisine RR **1.30**).
+- A network meta-analysis ranks **varenicline and combination NRT** highest among the drug options — **[Cahill et al., Cochrane 2013](<https://doi.org/10.1002/14651858.CD009329.pub2>)**.
 
 ### On vaping
 
