@@ -1,42 +1,35 @@
 ---
 layout: slogan.njk
 order: 8
-slogan: "It's not all on you"
-verdict: "The biggest health gains rarely came from people trying harder — they came from changing the shared environment. And that is something we do together."
+slogan: "Change the rules, not just yourself"
+verdict: "The biggest health gains come from the shared environment, not from trying harder alone — so shaping that environment, by engaging and voting for it as you come of age, is among the highest-leverage health acts there is."
 confidence: high
 clock: both
 ---
 
 ## For ages 8–11
 
-Every page here says the same quiet thing: living well is less about being strong than about the world around you being set up to help. Here is the biggest version of that — **the world around you is built by people, and people can build it better.**
+Every page here says the same quiet thing: living well is less about being strong than about the world around you being set up to help. Here is the biggest version of that — **the world around you is built by people's decisions, and it can be built to make health easy or hard.**
 
-Grown-ups make rules and build things, and those choices decide how easy it is to be healthy where you live. A place with clean air indoors, safe paths to cycle on, and drinks that aren't stuffed with sugar is an easier place to be healthy than one without them — and none of that happened by accident. People decided it, together.
+Whether the air indoors is clean, whether there are safe paths to walk and cycle on, whether the cheap and easy food is the healthy kind — none of that is fixed by nature. People decided it, through rules and choices, and people can decide it differently.
 
-So you are not on your own, and it is **not all on you**. When people act together — voting, speaking up, joining in — they can change the environment for everyone at once. That is often the thing that works best of all.
+That is the hopeful part: it is not set in stone, and one day it will partly be up to **you**. When you are older you get a vote and a voice, and using them to help build a healthier world is one of the most powerful things you can do — for yourself and for everyone else.
 
 ## For ages 11–16
 
-The whole site argues one point: change your **environment**, not your willpower. The most powerful way to do that isn't private at all — it's collective. Communities and governments can change *everyone's* environment at the same time, and when they do, the health effects are often bigger than anything one person can manage alone.
+The whole site argues one point: change your **environment**, not your willpower. But someone builds that environment — and before long, that someone includes you.
 
-Real examples that actually worked:
+The biggest health lever isn't only your own habits; it's the rules and the surroundings everyone shares. Real examples that worked: banning smoking indoors, a minimum price on alcohol, the "sugar tax" that made drinks less sweet, safer routes to cycle. None of these asked anyone to try harder — they changed the defaults for a whole population.
 
-- **Banning smoking indoors** — after Scotland did it, heart-attack admissions dropped sharply, and most of the fall was in non-smokers who had been breathing other people's smoke.
-- **A minimum price on alcohol** (Scotland) — fewer alcohol deaths, especially in the poorest communities.
-- **The "sugar tax"** on soft drinks — manufacturers quietly reformulated to cut the sugar, so the default drink got healthier without anyone having to diet.
-- **Cycle paths and safe routes** — more walking and cycling (though, honestly, the evidence here is weaker than the others).
-
-The point is empowering, not preachy: your health is not only your private battle. You can be part of changing the environment — and that is often where the biggest wins are.
+So here is the honest, empowering version, and it is the opposite of "not my problem": **as you come of age, engaging and voting for governments and representatives who prioritise health-promoting environments becomes one of the highest-leverage health decisions you can make.** Not to blame yourself for the environment you inherited — but to use the say you are about to get, for yourself and the people around you.
 
 ## For ages 16+
 
-This page is the logical endpoint of everything else here. If how much you smoke, drink, eat and move is powerfully shaped by your environment, then the highest-leverage health action is often to **change the environment** — and at population scale, that means policy, decided collectively.
+This page is the logical endpoint of everything else here — and it points at your ballot. If how much people smoke, drink, eat and move is powerfully shaped by their environment, then the highest-leverage health action is often to **change the environment**, and at population scale that means policy, decided collectively.
 
-The evidence is strongest exactly where the measure is structural and the study design is clean. Scotland's indoor smoking ban was followed by a sharp, replicated fall in heart-attack admissions, most of it in non-smokers who had merely been breathing the air. Its minimum unit price for alcohol was followed by a marked reduction in alcohol-attributable deaths, concentrated in the most deprived communities. The UK's soft-drinks levy triggered large-scale reformulation — the sugar came out of the drinks — with a targeted reduction in childhood obesity in the poorest areas. (The precise figures, with sources, are in the evidence panel below.)
+The evidence is strongest exactly where the measure is structural and the study design is clean. Scotland's indoor smoking ban was followed by a sharp, replicated fall in heart-attack admissions, most of it in non-smokers who had merely been breathing the air. Its minimum unit price for alcohol was followed by a marked reduction in alcohol-attributable deaths, concentrated in the most deprived communities. The UK's soft-drinks levy triggered large-scale reformulation — the sugar came out of the drinks — with a targeted reduction in childhood obesity in the poorest areas. (The precise figures, with sources, are in the evidence panel below.) Be honest about the weaker case, too: **active-travel infrastructure** — cycle paths, safe routes — is suggestive, not proven.
 
-Be honest about the weaker case: **active-travel infrastructure** — cycle paths, safe routes — is suggestive, not proven. The best natural experiment found more walking and cycling only after two years and only near people's homes, and it may have partly displaced existing activity rather than replacing car trips.
-
-The unifying claim is modest and well-supported: the biggest population health improvements have generally come from changing the shared environment, not from exhorting individuals — and that environment is something citizens shape together. *Which* measures deserve support is partly an evidence question (answered here) and partly a question of values and trade-offs, which is yours, not ours.
+Put those together and an honest conclusion follows: the biggest population health improvements have generally come from changing the shared environment, not from exhorting individuals — so **engaging as a citizen, and voting for representatives who prioritise health-promoting environments over ill-health-promoting ones, is itself a high-leverage, evidence-based health act.** This is a reference, not a campaign, so it stops there: the evidence for *what works* is above; *which* measures are worth their trade-offs, and *who* best represents them, is a question of values that is yours to answer, not ours.
 
 ## The evidence
 
@@ -62,4 +55,4 @@ The unifying claim is modest and well-supported: the biggest population health i
 
 ## The honest weakness
 
-Attributing a population change to a single policy is genuinely hard, and none of these are randomised trials. The strongest cases (smoke-free laws, minimum unit pricing) rest on well-designed natural experiments and controlled interrupted time series with clear, replicated effects. The sugar levy's *reformulation* effect is unambiguous; its *health* effects are real but targeted — some groups, not all — rather than universal. Active-travel infrastructure is the weakest link: plausible and supported, but not on the same footing. And which of these measures is worth its trade-offs is partly a question of values, not just evidence — this page grades the evidence and leaves the politics to you.
+Attributing a population change to a single policy is genuinely hard, and none of these are randomised trials. The strongest cases (smoke-free laws, minimum unit pricing) rest on well-designed natural experiments and controlled interrupted time series with clear, replicated effects. The sugar levy's *reformulation* effect is unambiguous; its *health* effects are real but targeted — some groups, not all — rather than universal. Active-travel infrastructure is the weakest link: plausible and supported, but not on the same footing. And the leap from "these measures work" to "vote this way" is deliberately left to you: the evidence can tell you *what changes health*, but weighing it against liberty, cost and other priorities — and judging who would deliver it — is a question of values, not data.
