@@ -30,5 +30,21 @@ jobs:
       - name: Build
         run: npm run build
 
+      # The Slides page links to the decks, so they must exist before the link
+      # check runs. Chromium is needed only for the PDF decks.
+      - name: Install Chromium for the PDF decks
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+
+      # Ubuntu 23.10+ runners restrict unprivileged user namespaces via AppArmor,
+      # which stops Chromium's sandbox launching. Re-enable it so the PDFs render.
+      - name: Allow Chromium sandbox
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+
+      - name: Build decks (HTML + PDF)
+        env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: npm run deck
+
       - name: Links + no external requests
         run: npm run check:links
