@@ -1,5 +1,6 @@
 node_modules/
 _site/
+slides/_generated/
 .DS_Store
 *.log
 npm-debug.log*

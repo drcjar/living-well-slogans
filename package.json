@@ -10,8 +10,11 @@
     "serve": "eleventy --serve",
     "check": "node scripts/check-evidence.js",
     "check:links": "node scripts/check-links.js",
-    "deck": "marp slides/deck.md -o _site/deck.html && marp slides/deck.md --pdf --allow-local-files -o _site/deck.pdf",
-    "deck:html": "marp slides/deck.md -o _site/deck.html"
+    "deck:gen": "node scripts/build-decks.js",
+    "deck:talk": "marp slides/deck.md -o _site/deck.html && marp slides/deck.md --pdf --allow-local-files -o _site/deck.pdf",
+    "deck:ages": "npm run deck:gen && marp -I slides/_generated -o _site && marp -I slides/_generated --pdf --allow-local-files -o _site",
+    "deck": "npm run deck:talk && npm run deck:ages",
+    "deck:html": "marp slides/deck.md -o _site/deck.html && npm run deck:gen && marp -I slides/_generated -o _site"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

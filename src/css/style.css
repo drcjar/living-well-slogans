@@ -90,7 +90,7 @@ thead th {
   text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft);
 }
 
-/* --- Slogan header & badges (the visual argument: who wrote each slogan) --- */
+/* --- Slogan header & badges (confidence in the claim, and which clock) --- */
 .eyebrow {
   font-size: 0.85rem; color: var(--ink-faint); text-transform: uppercase;
   letter-spacing: 0.06em; margin: 0 0 0.75rem;
@@ -104,14 +104,78 @@ thead th {
 .badge { border: 1px solid var(--rule); border-left-width: 4px; padding: 0.3rem 0.6rem; background: var(--paper-raised); }
 .badge dt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); margin: 0; }
 .badge dd { margin: 0; font-weight: 600; font-size: 0.95rem; }
-.badge--author, .badge--folk { border-left-color: var(--auth-folk); }
-.badge--author dd, .badge--folk dd { color: var(--auth-folk); }
-.badge--public-health { border-left-color: var(--auth-public-health); }
-.badge--public-health dd { color: var(--auth-public-health); }
-.badge--industry { border-left-color: var(--auth-industry); }
-.badge--industry dd { color: var(--auth-industry); }
-.badge--marketing { border-left-color: var(--auth-marketing); }
-.badge--marketing dd { color: var(--auth-marketing); }
+.badge--confidence { border-left-color: var(--auth-public-health); }
+.badge--clock { border-left-color: var(--link); }
+
+/* --- Age tabs (progressive enhancement over three stacked sections) --- */
+.age-tabs { margin: 1.5rem 0 2rem; }
+.age-tablist {
+  display: flex; flex-wrap: wrap; gap: 0.25rem;
+  border-bottom: 2px solid var(--rule); margin-bottom: 1.25rem;
+}
+.age-tab {
+  appearance: none; border: 1px solid transparent; border-bottom: none;
+  background: transparent; color: var(--ink-soft);
+  font: inherit; font-weight: 600; font-size: 0.95rem;
+  padding: 0.5rem 0.9rem; margin-bottom: -2px; cursor: pointer;
+  border-top-left-radius: 4px; border-top-right-radius: 4px;
+}
+.age-tab:hover { color: var(--ink); background: var(--paper-raised); }
+.age-tab[aria-selected="true"] {
+  color: var(--auth-public-health); background: var(--paper-raised);
+  border-color: var(--rule); border-bottom: 2px solid var(--paper-raised);
+}
+.age-panel { animation: none; }
+.age-panel[hidden] { display: none; }
+/* Before the script runs (or with JS off), show all three as plain sections. */
+.age-tab { outline-offset: 2px; }
+
+/* --- Quiz --- */
+.quiz-ages { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+.quiz-agebtn {
+  appearance: none; font: inherit; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--rule); border-left-width: 4px; border-left-color: var(--auth-public-health);
+  background: var(--paper-raised); color: var(--ink); padding: 0.7rem 1.1rem; border-radius: 4px;
+}
+.quiz-agebtn:hover { border-color: var(--auth-public-health); }
+.quiz-hint, .quiz-scoreline { color: var(--ink-soft); }
+.quiz-scoreline { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 0.5rem 0 1rem; }
+.quiz-form { margin: 1.25rem 0; }
+.quiz-q { border: 1px solid var(--rule); border-radius: 4px; margin: 0 0 1rem; padding: 0.9rem 1rem; }
+.quiz-q legend { font-weight: 600; padding: 0 0.4rem; }
+.quiz-opt { display: block; padding: 0.35rem 0; cursor: pointer; }
+.quiz-opt input { margin-right: 0.3rem; }
+.quiz-submit {
+  appearance: none; font: inherit; font-weight: 700; cursor: pointer;
+  background: var(--auth-public-health); color: #fff; border: none;
+  padding: 0.7rem 1.2rem; border-radius: 4px; margin: 0.5rem 0;
+}
+.quiz-submit:hover { filter: brightness(1.08); }
+.quiz-cta { display: inline-block; font-weight: 600; margin: 0.5rem 1rem 0.5rem 0; }
+.quiz-link {
+  appearance: none; font: inherit; cursor: pointer; background: none; border: none;
+  color: var(--link); text-decoration: underline; text-underline-offset: 0.15em;
+  padding: 0; margin: 1rem 0 0; display: block;
+}
+.quiz-warn { color: var(--auth-industry); font-weight: 600; }
+.quiz-result { border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.25rem; }
+.quiz-rprompt { font-weight: 600; margin-bottom: 0.5rem; }
+.quiz-rlist { list-style: none; padding: 0; margin: 0 0 0.6rem; }
+.quiz-ropt { padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.97rem; }
+.quiz-ropt.is-correct { background: color-mix(in srgb, var(--auth-public-health) 14%, transparent); font-weight: 600; }
+.quiz-ropt.is-you-wrong { background: color-mix(in srgb, var(--auth-industry) 14%, transparent); }
+.quiz-why { color: var(--ink-soft); font-size: 0.95rem; margin: 0.3rem 0 0.4rem; }
+.quiz-evlink { font-size: 0.9rem; font-weight: 600; }
+
+/* --- Downloads (decks) --- */
+.downloads { display: grid; gap: 0.6rem; margin: 1.25rem 0; padding: 0; list-style: none; }
+.downloads a {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem;
+  border: 1px solid var(--rule); border-left-width: 4px; border-left-color: var(--auth-public-health);
+  padding: 0.7rem 0.9rem; text-decoration: none; color: var(--ink); background: var(--paper);
+}
+.downloads a:hover { background: var(--paper-raised); }
+.downloads .d-fmt { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
 
 /* --- Pager --- */
 .pager {
@@ -134,15 +198,7 @@ thead th {
 }
 .slogan-index a:hover { background: var(--paper-raised); }
 .slogan-index .s-title { font-weight: 700; font-size: 1.05rem; }
-.slogan-index .s-author { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-left: auto; font-weight: 600; }
-.slogan-index [data-author="public-health"] { border-left-color: var(--auth-public-health); }
-.slogan-index [data-author="public-health"] .s-author { color: var(--auth-public-health); }
-.slogan-index [data-author="industry"] { border-left-color: var(--auth-industry); }
-.slogan-index [data-author="industry"] .s-author { color: var(--auth-industry); }
-.slogan-index [data-author="marketing"] { border-left-color: var(--auth-marketing); }
-.slogan-index [data-author="marketing"] .s-author { color: var(--auth-marketing); }
-.slogan-index [data-author="folk"] { border-left-color: var(--auth-folk); }
-.slogan-index [data-author="folk"] .s-author { color: var(--auth-folk); }
+.slogan-index a { border-left-color: var(--auth-public-health); }
 
 /* --- The two-clock diagram (SVG, no JS) --- */
 .two-clock { margin: 2rem 0; border: 1px solid var(--rule); padding: 1rem; background: var(--paper-raised); }

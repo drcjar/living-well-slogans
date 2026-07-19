@@ -1,0 +1,174 @@
+---
+layout: base.njk
+title: Before-and-after quiz
+verdict: "Guess first, then check. Take the quiz cold, read the evidence, and take a second (different) quiz to see what changed — with the answers shown each time."
+permalink: /quiz/
+---
+
+<h1>Before &amp; after</h1>
+
+<p class="lede">Take a quick quiz <strong>before</strong> you read anything — just guess. Then explore the pages and take a <strong>second, different</strong> quiz to see what changed. You'll get the answers after each one. Nothing is sent anywhere; your answers stay in this browser.</p>
+
+<noscript>
+  <p><strong>This quiz needs JavaScript.</strong> With it off, you can still read every page and its evidence directly — start at the <a href="/">home page</a>.</p>
+</noscript>
+
+<div id="quiz" data-quiz data-base="{{ '/' | url }}" hidden></div>
+
+<script type="application/json" id="quiz-data">{{ quiz | dump | safe }}</script>
+<script>
+(function () {
+  var root = document.getElementById("quiz");
+  if (!root) return;
+  var DATA = JSON.parse(document.getElementById("quiz-data").textContent);
+  var KEY = "lws.quiz.v2";
+  var BASE = (root.getAttribute("data-base") || "/").replace(/\/$/, "");
+  function href(url) { return BASE + url; }
+  root.hidden = false;
+
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+  function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+  function reset() { try { localStorage.removeItem(KEY); } catch (e) {} render(); }
+  function bandByKey(k) { return DATA.bands.filter(function (b) { return b.key === k; })[0]; }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+  function scoreOf(answers, questions) { return questions.reduce(function (n, q, i) { return n + (answers[i] === q.answer ? 1 : 0); }, 0); }
+
+  function render() {
+    var s = load();
+    root.innerHTML = "";
+    if (!s.band) return renderPick();
+    var band = bandByKey(s.band);
+    if (!band) { reset(); return; }
+    if (!s.before) return renderQuiz(band, "before");
+    if (!s.after) return renderResume(band);
+    return renderResults(band, "after");
+  }
+
+  function renderPick() {
+    root.appendChild(el("h2", null, "Who's taking it?"));
+    root.appendChild(el("p", null, "Pick a reading age — the questions are pitched to match."));
+    var row = el("div", "quiz-ages");
+    DATA.bands.forEach(function (b) {
+      var btn = el("button", "quiz-agebtn", b.label);
+      btn.type = "button";
+      btn.addEventListener("click", function () { save({ band: b.key }); render(); });
+      row.appendChild(btn);
+    });
+    root.appendChild(row);
+  }
+
+  function renderQuiz(band, phase) {
+    var questions = band[phase];
+    root.appendChild(el("h2", null, (phase === "before" ? "Quiz 1 — " : "Quiz 2 — ") + band.label));
+    root.appendChild(el("p", "quiz-hint", phase === "before"
+      ? "Just guess — this is your starting point. You'll see the answers straight after."
+      : "A fresh set of questions on the same topics. Answer, and we'll show the answers and how your score changed."));
+
+    var form = el("form", "quiz-form");
+    var picked = {};
+    questions.forEach(function (q, i) {
+      var fs = el("fieldset", "quiz-q");
+      fs.appendChild(el("legend", null, (i + 1) + ". " + q.prompt));
+      q.options.forEach(function (opt, j) {
+        var lab = el("label", "quiz-opt");
+        var inp = el("input");
+        inp.type = "radio"; inp.name = "q" + i; inp.value = j;
+        inp.addEventListener("change", function () { picked[i] = j; });
+        lab.appendChild(inp);
+        lab.appendChild(document.createTextNode(" " + opt));
+        fs.appendChild(lab);
+      });
+      form.appendChild(fs);
+    });
+
+    var submit = el("button", "quiz-submit", phase === "before" ? "See the answers" : "See the answers & what changed");
+    submit.type = "submit";
+    form.appendChild(submit);
+    var warn = el("p", "quiz-warn"); warn.hidden = true; warn.textContent = "Answer every question first.";
+    form.appendChild(warn);
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (Object.keys(picked).length < questions.length) { warn.hidden = false; return; }
+      var answers = questions.map(function (_, i) { return picked[i]; });
+      var s = load();
+      s[phase] = { answers: answers, score: scoreOf(answers, questions) };
+      save(s);
+      renderResults(band, phase);
+      window.scrollTo(0, 0);
+    });
+    root.appendChild(form);
+
+    var start = el("button", "quiz-link", "Start over / change age");
+    start.type = "button"; start.addEventListener("click", reset);
+    root.appendChild(start);
+  }
+
+  function renderResume(band) {
+    var s = load();
+    root.appendChild(el("h2", null, "Ready for quiz 2 — " + band.label));
+    root.appendChild(el("p", "quiz-scoreline", "You scored " + s.before.score + " / " + band.before.length + " on the first quiz."));
+    root.appendChild(el("p", null, "Now explore the pages, then take the second quiz — different questions, same topics — to see what changed."));
+    var go = el("a", "quiz-cta"); go.href = href("/"); go.textContent = "Explore the pages →";
+    root.appendChild(go);
+    var next = el("button", "quiz-submit", "Take quiz 2");
+    next.type = "button"; next.addEventListener("click", function () { root.innerHTML = ""; renderQuiz(band, "after"); window.scrollTo(0, 0); });
+    root.appendChild(next);
+    var start = el("button", "quiz-link", "Start over / change age");
+    start.type = "button"; start.addEventListener("click", reset);
+    root.appendChild(start);
+  }
+
+  function renderResults(band, phase) {
+    var s = load();
+    root.innerHTML = "";
+    var questions = band[phase];
+    var answers = s[phase].answers;
+    var total = questions.length;
+
+    root.appendChild(el("h2", null, (phase === "before" ? "Quiz 1 — the answers" : "Quiz 2 — what changed") + " · " + band.label));
+    if (phase === "after") {
+      var delta = s.after.score - s.before.score;
+      root.appendChild(el("p", "quiz-scoreline",
+        "Quiz 1: " + s.before.score + " / " + band.before.length + "   →   Quiz 2: " + s.after.score + " / " + total +
+        "   (" + (delta > 0 ? "+" + delta : delta) + ")"));
+    } else {
+      root.appendChild(el("p", "quiz-scoreline", "You scored " + s.before.score + " / " + total + "."));
+    }
+    root.appendChild(el("p", "quiz-hint", "Here's each question with your answer, the correct one, and where to check it."));
+
+    questions.forEach(function (q, i) {
+      var card = el("div", "quiz-result");
+      card.appendChild(el("p", "quiz-rprompt", (i + 1) + ". " + q.prompt));
+      var a = answers[i];
+      var ul = el("ul", "quiz-rlist");
+      q.options.forEach(function (opt, j) {
+        var li = el("li", "quiz-ropt");
+        var tags = [];
+        if (j === q.answer) { li.classList.add("is-correct"); tags.push("✓ correct"); }
+        if (j === a) { tags.push("your answer"); if (j !== q.answer) li.classList.add("is-you-wrong"); }
+        li.textContent = opt + (tags.length ? "  — " + tags.join(", ") : "");
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      card.appendChild(el("p", "quiz-why", q.why));
+      var link = el("a", "quiz-evlink"); link.href = href(q.url); link.textContent = "See the evidence →";
+      card.appendChild(link);
+      root.appendChild(card);
+    });
+
+    if (phase === "before") {
+      var go = el("a", "quiz-cta"); go.href = href("/"); go.textContent = "Explore the pages →";
+      root.appendChild(go);
+      var next = el("button", "quiz-submit", "I've explored — take quiz 2");
+      next.type = "button"; next.addEventListener("click", function () { root.innerHTML = ""; renderQuiz(band, "after"); window.scrollTo(0, 0); });
+      root.appendChild(next);
+    }
+    var start = el("button", "quiz-link", "Start over / change age");
+    start.type = "button"; start.addEventListener("click", reset);
+    root.appendChild(start);
+  }
+
+  render();
+})();
+</script>

@@ -14,7 +14,7 @@ export default function (eleventyConfig) {
   // The markdown files in content/ are the canonical artefact. We render them
   // as-is; the site is just a view of them.
   eleventyConfig.addGlobalData("site", {
-    title: "Living Well: Slogans and the Evidence",
+    title: "Living Well and the Evidence",
     // Set this in the GitHub Pages settings / repo, used only for absolute
     // URLs where unavoidable. Kept relative everywhere we can.
     repo: "https://github.com/drcjar/living-well-slogans",
@@ -29,24 +29,11 @@ export default function (eleventyConfig) {
       moderate: "Moderate",
       contested: "Contested",
     },
-    authored_by: {
-      "public-health": "Public health",
-      industry: "Industry",
-      marketing: "Marketing",
-      folk: "Folk wisdom",
-    },
     clock: {
       "ten-year": "Ten-year clock",
       "seventy-year": "Seventy-year clock",
       both: "Both clocks",
     },
-  });
-
-  // A tidy, readable date filter for the talks write-ups.
-  eleventyConfig.addFilter("isoDate", (d) => {
-    if (!d) return "";
-    const dt = d instanceof Date ? d : new Date(d);
-    return dt.toISOString().slice(0, 10);
   });
 
   // Collection of slogan pages, ordered by the `order` front-matter field so
@@ -55,13 +42,6 @@ export default function (eleventyConfig) {
     collection
       .getFilteredByGlob("content/slogans/*.md")
       .sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
-  );
-
-  eleventyConfig.addCollection("talks", (collection) =>
-    collection
-      .getFilteredByGlob("content/talks/*.md")
-      .filter((t) => !t.inputPath.includes("_template"))
-      .sort((a, b) => (b.data.date || 0) - (a.data.date || 0))
   );
 
   return {
