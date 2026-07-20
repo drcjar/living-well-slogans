@@ -4,6 +4,8 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 export default function (eleventyConfig) {
   // Copy the hand-written CSS through untouched. No pipeline, no framework.
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
+  // Self-contained SVG favicon (an evidence "checked" mark in the teal accent).
+  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
 
   // GitHub Pages serves a project site under /<repo>/. This rewrites every
   // root-absolute link and asset URL to include that prefix, so the same
