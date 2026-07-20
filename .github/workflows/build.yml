@@ -3,7 +3,7 @@ name: build
 # Build the site and the deck, gate on the evidence check, then publish to the
 # gh-pages branch on push to main. Pages is configured to serve from gh-pages
 # (Settings -> Pages -> Deploy from a branch: gh-pages / root), served under the
-# account's carlreynolds.net apex at /living-well-slogans/.
+# account's carlreynolds.net apex at /living-well/.
 on:
   push:
     branches: [main]

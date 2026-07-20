@@ -8,7 +8,7 @@ export default function (eleventyConfig) {
   // GitHub Pages serves a project site under /<repo>/. This rewrites every
   // root-absolute link and asset URL to include that prefix, so the same
   // markdown works locally (prefix "/") and on Pages. Override at build time
-  // with `eleventy --pathprefix=/living-well-slogans/`.
+  // with `eleventy --pathprefix=/living-well/`.
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
   // The markdown files in content/ are the canonical artefact. We render them
@@ -17,7 +17,7 @@ export default function (eleventyConfig) {
     title: "Living Well and the Evidence",
     // Set this in the GitHub Pages settings / repo, used only for absolute
     // URLs where unavoidable. Kept relative everywhere we can.
-    repo: "https://github.com/drcjar/living-well-slogans",
+    repo: "https://github.com/drcjar/living-well",
   });
 
   // Human-readable labels for the confidence and authorship enums, so the
@@ -45,11 +45,11 @@ export default function (eleventyConfig) {
   );
 
   return {
-    // GitHub Pages serves this project under /living-well-slogans/ (via the
-    // account's carlreynolds.net apex). Default to that prefix so `npm run
-    // build` in CI produces correct links. Override for a root deploy with
+    // GitHub Pages serves this project under /living-well/ (via the account's
+    // carlreynolds.net apex). Default to that prefix so `npm run build` in CI
+    // produces correct links. Override for a root deploy with
     // `eleventy --pathprefix=/`.
-    pathPrefix: "/living-well-slogans/",
+    pathPrefix: "/living-well/",
     dir: {
       input: "content",
       includes: "../src/_layouts",
