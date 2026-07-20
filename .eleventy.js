@@ -34,6 +34,11 @@ export default function (eleventyConfig) {
       "seventy-year": "Seventy-year clock",
       both: "Both clocks",
     },
+    clockShort: {
+      "ten-year": "10-yr clock",
+      "seventy-year": "70-yr clock",
+      both: "both clocks",
+    },
   });
 
   // Collection of slogan pages, ordered by the `order` front-matter field so
