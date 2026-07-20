@@ -20,4 +20,4 @@ verdict: "Evidence-based pointers on living well — each one linked to the stud
 
 ---
 
-*Prepared July 2026. See [how this was made and how to contribute](https://github.com/drcjar/living-well-slogans). Effect sizes are given with the design that generated them, and with the honest weaknesses.*
+*Prepared July 2026. See [how this was made and how to contribute](https://github.com/drcjar/living-well). Effect sizes are given with the design that generated them, and with the honest weaknesses.*

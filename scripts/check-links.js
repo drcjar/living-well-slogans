@@ -41,7 +41,7 @@ const FETCHING_ATTR = /\b(?:src|href)\s*=\s*"([^"]+)"/gi;
 
 // Must match pathPrefix in .eleventy.js. Links carry this prefix, but the
 // built files sit at the _site root, so strip it before resolving to disk.
-const PREFIX = "/living-well-slogans";
+const PREFIX = "/living-well";
 
 function resolveInternal(href) {
   let target = href.split("#")[0].split("?")[0];

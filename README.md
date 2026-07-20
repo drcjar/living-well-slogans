@@ -91,6 +91,6 @@ Pushing to `main` runs `.github/workflows/build.yml`, which gates on the
 evidence check, builds the site and the deck, and force-pushes the result to the
 `gh-pages` branch. GitHub Pages serves that branch (Settings → Pages → Deploy
 from a branch: `gh-pages` / root). The site is served under the account's
-`carlreynolds.net` apex at <https://carlreynolds.net/living-well-slogans/>, which
-is why `pathPrefix` in `.eleventy.js` is `/living-well-slogans/`. Change the
+`carlreynolds.net` apex at <https://carlreynolds.net/living-well/>, which
+is why `pathPrefix` in `.eleventy.js` is `/living-well/`. Change the
 prefix if you rename the repo or move it off that domain.
