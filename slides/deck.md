@@ -9,26 +9,43 @@ author: Carl Reynolds and contributors
 style: |
   section {
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 26px;
-    line-height: 1.4;
-    color: #1a1a1a;
-    background: #fbfaf7;
-    padding: 48px 56px;
+    font-size: 25px;
+    line-height: 1.35;
+    color: #181b20;
+    background: #eef1f2;
+    padding: 44px 52px;
+    border-top: 8px solid #0e6b6e;
   }
-  h1 { font-size: 46px; letter-spacing: -0.02em; }
-  h2 { font-size: 34px; letter-spacing: -0.015em; color: #1a1a1a; }
-  strong { color: #a3341f; }
-  table { font-size: 24px; border-collapse: collapse; }
-  th, td { border-bottom: 1px solid #d9d5cc; padding: 6px 14px; text-align: left; }
-  section.lead h1 { font-size: 52px; }
+  h1 { font-size: 46px; letter-spacing: -0.03em; }
+  h2 { font-size: 33px; letter-spacing: -0.02em; color: #181b20; margin-bottom: 0.3em; }
+  strong { color: #0a5457; }
+  em { color: #474d56; }
+  ul { font-size: 24px; }
+  li { margin-bottom: 0.28em; }
+  table { font-size: 22px; border-collapse: collapse; }
+  th, td { border-bottom: 1px solid #cdd4d8; padding: 5px 12px; text-align: left; }
+  blockquote { font-size: 23px; border-left: 4px solid #0e6b6e; padding-left: 16px; color: #474d56; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; background: #e2e7e9; padding: 0 4px; }
   section.lead { justify-content: center; }
-  footer { color: #6a6a6a; font-size: 15px; }
+  section.lead h1 { font-size: 52px; }
+  footer { color: #79808a; font-size: 14px; }
 ---
 
 <!-- _class: lead -->
 # How are we to live?
 
 ### Evidence-based pointers on living well
+
+---
+
+## Trust, but verify
+
+Every claim here carries its **study design**, its **effect size**, and its **honest weakness** — and links to the paper.
+
+- Don't be a cynic who believes nothing, or a pushover who believes everything.
+- Believe things **in proportion to the evidence** — then go and check.
+
+*This whole thing assumes you care what happens next. If you don't, there's nothing here for you.*
 
 ---
 
@@ -41,43 +58,83 @@ Your next decade — the **10-year clock** — is a different list.
 |---|---|
 | Don't start nicotine | Smoking |
 | Alcohol & acute injury | Physical inactivity |
-| Road (belt, helmet) | Alcohol |
-| Gambling on a phone | Diet / food environment |
-| Sleep & mood | Gambling · Sun · Sleep |
+| Road (belt, helmet) | Diet / food environment |
+| Gambling on a phone | Alcohol · Gambling |
+| Sleep & mood | Sun · Sleep |
+
+The two lists barely overlap. Knowing **which clock** a message is on is half the point.
 
 ---
 
 ## Smoking kills — stopping helps
 
-- Smokers die on average **~10 years** younger — British Doctors Study (Doll et al., BMJ 2004), reproduced in two other countries.
-- Two-thirds of lifelong smokers are killed by it (Banks et al. 2015).
-- **But**: stopping before 40 avoids **>90%** of the excess risk; before 30, **>97%** (Pirie et al., Lancet 2013).
+- Smokers die on average **~10 years** younger; two-thirds are killed by it (British Doctors Study; Banks 2015).
+- **But**: stopping before 40 avoids **>90%** of the excess risk; before 30, **>97%** (Pirie 2013).
+- And quitting is **achievable** — comprehensive support plus medicines (varenicline **RR 2.32**, NRT **RR 1.55**).
 
-The risk is largely reversible if you stop early — a reason to act, not to give up.
+Almost everyone who smokes for life starts young: **not starting** removes the whole problem.
+
+---
+
+## Alcohol: no safe dose
+
+- Risk rises from the **first drink** — the old "protective" J-curve was confounding (Millwood, genetic study 2019).
+- **But** it's a claim about the *shape* of the curve, not the *size*: one drink's risk is small.
+- For a teenager the danger is **tonight** — injury, not cirrhosis in thirty years.
 
 ---
 
 ## Gambling: designed so you lose
 
-No statistics needed. The edge is a **published design parameter**.
+No statistics needed — the house edge is a **published design parameter**.
 
-- Roulette house edge: **2.7%** (single-zero), **5.26%** (double).
-- UK online slots return-to-player: **92–96%** — specified to keep 4–8%.
+- Roulette: **2.7%** (single-zero), **5.26%** (double). Online slots keep **4–8%** of everything staked.
+- You are not unlucky — you are on the wrong side of a number the company **chose and published**.
+- Harm tracks the **product** (fast, continuous), not the personality.
 
-> You are not unlucky. You are on the wrong side of a number
-> the company **chose in advance, wrote down, and published.**
+---
+
+## Eat food. Mostly plants. Not too much.
+
+- Excess body fat **causally** raises type-2 diabetes, heart disease, **13 cancers** and mortality (genetic studies; IARC).
+- The body **defends** fat once gained, and it tracks from childhood — **prevention beats reversal**.
+- You eat more when food is processed and portions are big. **Change the defaults**, not your willpower.
+
+*The stakes are well-evidenced; the "right diet" is the weak part — so change the environment.*
 
 ---
 
 ## Move more, sit less
 
-The biggest health gain is simply **not being in the least-active group.**
+- The biggest gain is simply **leaving the least-active group** — the curve is front-loaded (Ekelund 2019).
+- There is **no magic number** to hit.
+- It lifts your **mood now**: activity causally lowers depression (Choi 2019). Try **parkrun** — free, weekly, walk or run.
 
-- The dose-response is steep and **front-loaded** — most of the benefit comes from leaving the bottom (Ekelund et al., BMJ 2019).
-- Accelerometer-measured, so not inflated by self-report.
-- Mendelian randomisation supports a genuine protective effect (Klimentidis et al., 2018).
+---
 
-Whatever gets you off the floor captures most of it. No number to hit.
+## Sleep like it matters
+
+- Best-evidenced as a **short-term** lever on mood and attention — the two weeks, not the fifty years.
+- Teenage body clocks **run late** — biology, not laziness.
+- Basics help: regular hours, dark room, **dim evening screens**, no late caffeine. *(Real insomnia → CBT-I, not a checklist.)*
+
+---
+
+## Slip, slop, slap
+
+- The **best study design** on the whole list — an actual randomised trial (Nambour).
+- Daily sunscreen roughly **halved melanomas**, ten years after the trial ended.
+- Melanoma is already common in **15–34s**; sunbeds are a Group 1 carcinogen. Both clocks agree.
+
+---
+
+## Change the rules, not just yourself
+
+The biggest gains came from the **shared environment**, not from trying harder.
+
+- Smoke-free laws: heart-attack admissions **↓17%** (Scotland).
+- Minimum unit pricing: alcohol deaths **↓13.4%**. Sugar levy: drinks reformulated.
+- As you come of age, **engaging and voting** for health-promoting policy is itself a high-leverage act.
 
 ---
 
@@ -86,6 +143,6 @@ Whatever gets you off the floor captures most of it. No number to hit.
 ### But you can see it.
 
 *Smoking kills — stopping helps. Alcohol: no safe dose. Gambling: designed so you lose.*
-*Move more, sit less. Sleep like it matters. Slip, slop, slap.*
+*Eat food, mostly plants, not too much. Move more, sit less. Sleep like it matters. Slip, slop, slap.*
 
-**Trust, but verify — the full evidence, with its weaknesses, is on the site.**
+**Trust, but verify — the full evidence, with its weaknesses and links, is on the site.**
