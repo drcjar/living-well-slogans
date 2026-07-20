@@ -13,6 +13,7 @@ verdict: "Evidence-based pointers on living well — each one linked to the stud
   <li>
     <a href="{{ s.url }}">
       <span class="s-title">{{ s.data.slogan }}</span>
+      <span class="s-clock">{{ labels.clockShort[s.data.clock] }}</span>
     </a>
   </li>
 {% endfor %}
