@@ -1,0 +1,247 @@
+/* Living Well and the Evidence — one hand-written stylesheet.
+ * No framework, no webfonts, no external calls. A working paper, not a campaign.
+ *
+ * Identity: an evidence record. Cool paper, white "record" cards, a single
+ * teal accent, an ochre caution tone for weak evidence, and a monospace
+ * "data voice" for the quantitative apparatus (grades, figures, citations).
+ */
+:root {
+  --ink: #181b20; --ink-soft: #474d56; --ink-faint: #79808a;
+  --paper: #eef1f2; --paper-raised: #ffffff; --rule: #d5dade;
+  --accent: #0e6b6e; --accent-strong: #0a5457;
+  --warn: #8a6510;
+  --link: var(--accent); --link-hover: var(--accent-strong);
+  /* legacy names still referenced by components, repointed to the new palette */
+  --auth-public-health: var(--accent); --auth-industry: #b0563a;
+  --auth-marketing: var(--warn); --auth-folk: #5b5b5b;
+  --measure: 38rem;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e6e9ec; --ink-soft: #b7bdc5; --ink-faint: #858c95;
+    --paper: #121517; --paper-raised: #1b1f23; --rule: #2d333a;
+    --accent: #45b8bb; --accent-strong: #6fd0d2;
+    --warn: #d3a44e;
+    --auth-public-health: var(--accent); --auth-industry: #e0855f;
+    --auth-marketing: var(--warn); --auth-folk: #9a978f;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6;
+  text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased;
+  border-top: 3px solid var(--accent);
+}
+
+/* --- Skip link & focus --- */
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper); padding: 0.5rem 0.75rem; z-index: 10;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+a:focus-visible, :focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+
+/* --- Links --- */
+a { color: var(--link); text-underline-offset: 0.15em; }
+a:hover { color: var(--link-hover); }
+
+/* --- Layout --- */
+.site-header, .site-footer, main { padding-inline: 1.25rem; }
+main { max-width: 46rem; margin: 0 auto; padding-block: 2.5rem 3rem; }
+.site-header { border-bottom: 1px solid var(--rule); }
+.site-header nav {
+  max-width: 46rem; margin: 0 auto; display: flex; flex-wrap: wrap;
+  align-items: baseline; gap: 0.5rem 1.5rem; padding-block: 0.85rem;
+}
+.site-title { font-weight: 700; text-decoration: none; color: var(--ink); letter-spacing: -0.01em; }
+.nav-list {
+  list-style: none; display: flex; gap: 1.25rem; margin: 0 0 0 auto;
+  padding: 0; font-size: 0.95rem;
+}
+.site-footer {
+  border-top: 1px solid var(--rule); margin-top: 3rem;
+  padding-block: 1.75rem 2.5rem; color: var(--ink-faint); font-size: 0.9rem;
+}
+.site-footer p { max-width: 46rem; margin: 0 auto 0.5rem; }
+
+/* --- Prose --- */
+.prose, main > h1, main > p { max-width: var(--measure); }
+h1, h2, h3 { line-height: 1.14; font-weight: 700; }
+h1 { font-size: clamp(1.95rem, 1.3rem + 2.7vw, 3rem); margin: 0 0 0.6rem; font-weight: 800; letter-spacing: -0.032em; }
+h2 {
+  font-size: 1.4rem; margin: 2.5rem 0 0.6rem; letter-spacing: -0.02em;
+  padding-top: 0.85rem; border-top: 1px solid var(--rule);
+}
+h3 { font-size: 1.1rem; margin: 1.6rem 0 0.4rem; letter-spacing: -0.012em; }
+p, ul, ol { margin: 0 0 1rem; }
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose li { margin-bottom: 0.4rem; }
+blockquote {
+  margin: 1.5rem 0; padding: 0.5rem 0 0.5rem 1.1rem;
+  border-left: 3px solid var(--rule); color: var(--ink-soft); font-size: 1.05rem;
+}
+blockquote strong { color: var(--ink); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em; background: var(--paper-raised); padding: 0.1em 0.35em; border-radius: 2px;
+}
+
+/* --- Tables (the worked/failed spine) --- */
+.table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.98rem; }
+th, td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+thead th {
+  border-bottom: 2px solid var(--ink-faint); font-size: 0.85rem;
+  text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft);
+}
+
+/* --- Slogan header & badges (confidence in the claim, and which clock) --- */
+.eyebrow {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--ink-faint);
+  text-transform: uppercase; letter-spacing: 0.14em; margin: 0 0 0.9rem;
+}
+.eyebrow a { color: inherit; }
+.verdict {
+  font-family: var(--serif); font-size: 1.22rem; line-height: 1.45;
+  color: var(--ink-soft); margin: 0 0 1.4rem; max-width: var(--measure);
+}
+/* Grade stamp: the confidence + clock as a single monospace specimen label. */
+.badges {
+  display: flex; flex-wrap: wrap; gap: 0; margin: 0 0 1.75rem; padding: 0;
+  width: fit-content; border: 1px solid var(--rule); border-radius: 3px;
+  background: var(--paper-raised); overflow: hidden;
+}
+.badge { padding: 0.4rem 0.9rem; border-right: 1px solid var(--rule); }
+.badge:last-child { border-right: none; }
+.badge dt {
+  font-family: var(--mono); font-size: 0.6rem; text-transform: uppercase;
+  letter-spacing: 0.16em; color: var(--ink-faint); margin: 0 0 0.15rem;
+}
+.badge dd { font-family: var(--mono); margin: 0; font-weight: 600; font-size: 0.9rem; color: var(--ink); }
+.badge--confidence dd { color: var(--accent); }
+
+/* --- Age tabs (progressive enhancement over three stacked sections) --- */
+.age-tabs { margin: 1.5rem 0 2rem; }
+.age-tablist {
+  display: flex; flex-wrap: wrap; gap: 0.25rem;
+  border-bottom: 2px solid var(--rule); margin-bottom: 1.25rem;
+}
+.age-tab {
+  appearance: none; border: 1px solid transparent; border-bottom: none;
+  background: transparent; color: var(--ink-soft);
+  font: inherit; font-weight: 600; font-size: 0.95rem;
+  padding: 0.5rem 0.9rem; margin-bottom: -2px; cursor: pointer;
+  border-top-left-radius: 4px; border-top-right-radius: 4px;
+}
+.age-tab:hover { color: var(--ink); background: var(--paper-raised); }
+.age-tab[aria-selected="true"] {
+  color: var(--auth-public-health); background: var(--paper-raised);
+  border-color: var(--rule); border-bottom: 2px solid var(--paper-raised);
+}
+.age-panel { animation: none; }
+.age-panel[hidden] { display: none; }
+/* Before the script runs (or with JS off), show all three as plain sections. */
+.age-tab { outline-offset: 2px; }
+
+/* --- Quiz --- */
+.quiz-ages { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+.quiz-agebtn {
+  appearance: none; font: inherit; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--rule); border-left-width: 4px; border-left-color: var(--auth-public-health);
+  background: var(--paper-raised); color: var(--ink); padding: 0.7rem 1.1rem; border-radius: 4px;
+}
+.quiz-agebtn:hover { border-color: var(--auth-public-health); }
+.quiz-hint, .quiz-scoreline { color: var(--ink-soft); }
+.quiz-scoreline { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin: 0.5rem 0 1rem; }
+.quiz-form { margin: 1.25rem 0; }
+.quiz-q { border: 1px solid var(--rule); border-radius: 4px; margin: 0 0 1rem; padding: 0.9rem 1rem; }
+.quiz-q legend { font-weight: 600; padding: 0 0.4rem; }
+.quiz-opt { display: block; padding: 0.35rem 0; cursor: pointer; }
+.quiz-opt input { margin-right: 0.3rem; }
+.quiz-submit {
+  appearance: none; font: inherit; font-weight: 700; cursor: pointer;
+  background: var(--auth-public-health); color: #fff; border: none;
+  padding: 0.7rem 1.2rem; border-radius: 4px; margin: 0.5rem 0;
+}
+.quiz-submit:hover { filter: brightness(1.08); }
+.quiz-cta { display: inline-block; font-weight: 600; margin: 0.5rem 1rem 0.5rem 0; }
+.quiz-link {
+  appearance: none; font: inherit; cursor: pointer; background: none; border: none;
+  color: var(--link); text-decoration: underline; text-underline-offset: 0.15em;
+  padding: 0; margin: 1rem 0 0; display: block;
+}
+.quiz-warn { color: var(--auth-industry); font-weight: 600; }
+.quiz-result { border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 1.25rem; }
+.quiz-rprompt { font-weight: 600; margin-bottom: 0.5rem; }
+.quiz-rlist { list-style: none; padding: 0; margin: 0 0 0.6rem; }
+.quiz-ropt { padding: 0.3rem 0.5rem; border-radius: 3px; font-size: 0.97rem; }
+.quiz-ropt.is-correct { background: color-mix(in srgb, var(--auth-public-health) 14%, transparent); font-weight: 600; }
+.quiz-ropt.is-you-wrong { background: color-mix(in srgb, var(--auth-industry) 14%, transparent); }
+.quiz-why { color: var(--ink-soft); font-size: 0.95rem; margin: 0.3rem 0 0.4rem; }
+.quiz-evlink { font-size: 0.9rem; font-weight: 600; }
+
+/* --- Downloads (decks) --- */
+.downloads { display: grid; gap: 0.6rem; margin: 1.25rem 0; padding: 0; list-style: none; }
+.downloads a {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 0.75rem;
+  border: 1px solid var(--rule); border-left-width: 4px; border-left-color: var(--auth-public-health);
+  padding: 0.7rem 0.9rem; text-decoration: none; color: var(--ink); background: var(--paper);
+}
+.downloads a:hover { background: var(--paper-raised); }
+.downloads .d-fmt { margin-left: auto; font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* --- Pager --- */
+.pager {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule);
+}
+.pager a { display: block; max-width: 15rem; text-decoration: none; color: var(--ink); font-weight: 600; line-height: 1.3; }
+.pager a:hover { color: var(--link); }
+.pager-next { margin-left: auto; text-align: right; }
+.pager span { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); font-weight: 500; }
+
+/* --- Index: lede + slogan list --- */
+.lede { font-family: var(--serif); font-size: 1.3rem; line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
+.slogan-index { list-style: none; padding: 0; margin: 1.75rem 0; display: grid; gap: 0.55rem; }
+.slogan-index li { margin: 0; }
+.slogan-index a {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem;
+  text-decoration: none; color: var(--ink); border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent); padding: 0.8rem 1rem;
+  background: var(--paper-raised); transition: border-color 0.12s, transform 0.12s;
+}
+.slogan-index a:hover { border-color: var(--accent); transform: translateX(2px); }
+.slogan-index .s-title { font-weight: 700; font-size: 1.08rem; letter-spacing: -0.01em; }
+.slogan-index .s-clock {
+  font-family: var(--mono); font-size: 0.64rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-faint); margin-left: auto;
+  align-self: center; white-space: nowrap;
+}
+
+/* --- The two-clock diagram (SVG, no JS) --- */
+.two-clock { margin: 2rem 0; border: 1px solid var(--rule); padding: 1rem; background: var(--paper-raised); }
+.two-clock svg { display: block; width: 100%; height: auto; }
+.two-clock figcaption { font-size: 0.9rem; color: var(--ink-faint); margin-top: 0.75rem; }
+.clock-bar-10 { fill: var(--auth-industry); }
+.clock-bar-70 { fill: var(--link); }
+.clock-axis { stroke: var(--rule); stroke-width: 1; }
+.clock-label { font-family: var(--sans); font-size: 13px; fill: var(--ink-soft); }
+.clock-heading { font-family: var(--sans); font-size: 14px; font-weight: 700; fill: var(--ink); }
+
+/* --- Talks --- */
+.talk-list { list-style: none; padding: 0; }
+.talk-list li { border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
+.talk-meta { color: var(--ink-faint); font-size: 0.85rem; }
+
+/* --- Responsive --- */
+@media (max-width: 24rem) {
+  body { font-size: 1rem; }
+  main { padding-inline: 1rem; }
+  .nav-list { gap: 0.9rem; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
